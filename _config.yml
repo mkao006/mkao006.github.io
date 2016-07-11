@@ -1,11 +1,8 @@
 # Site settings
 title: StaTEAstics
 email: mkao006@gmail.com
-description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-baseurl: "/knitr-jekyll/" # the subpath of your site, e.g. /blog/
+description: A place where I record what I do at work and interesting involvements with statistics while I have my cup of Chinese tea.
+baseurl: "" # the subpath of your site, e.g. /blog/
 url: "https://mkao006.github.io" # the base hostname & protocol for your site
 github_username:  mkao006
 permalink: /:year/:month/:title.html
