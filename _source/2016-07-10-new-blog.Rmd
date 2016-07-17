@@ -5,5 +5,5 @@ categories: [jekyll, rstats]
 tags: [knitr, servr, httpuv, websocket]
 ---
 
-This is my new blog, old posts are still available at (old
-blog)[http://mkao006.blogspot.com]
+This is my new blog, old posts are still available at [old
+blog](http://mkao006.blogspot.com)
