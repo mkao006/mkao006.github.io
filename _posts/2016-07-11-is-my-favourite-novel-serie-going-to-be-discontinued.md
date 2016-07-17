@@ -33,8 +33,15 @@ Let's load the required libraries and define some helper functions.
 
 
 
-{% highlight r %}
+```r
 library(XML)
+```
+
+```
+## Loading required package: methods
+```
+
+```r
 library(stringr)
 library(magrittr)
 library(ggplot2)
@@ -93,7 +100,7 @@ extractNovelTimeStamps = function(thread){
 calculate_hour_diff = function(time_stamps){
     diff(time_stamps)/60/60
 }
-{% endhighlight %}
+```
 
 After defining all the necessary helper function, we can start
 scrapping the data for the analysis. There are three novels in this
@@ -154,7 +161,7 @@ ggplot(data = novel_time, aes(x = post, y = duration)) +
 ## Don't know how to automatically pick scale for object of type difftime. Defaulting to continuous.
 ```
 
-![plot of chunk unnamed-chunk-3](https://mkao006.github.io2016-07-11-is-my-favourite-novel-serie-going-to-be-discontinued/unnamed-chunk-3-1.png)
+![plot of chunk unnamed-chunk-3](https://dl.dropboxusercontent.com/u/18161931/staTEAstics/2016-07-11-is-my-favourite-novel-serie-going-to-be-discontinued/unnamed-chunk-3-1.png)
 
 The summary table also shows the same result that the average or
 median duration to write a new chapter has almost doubled in contrast
