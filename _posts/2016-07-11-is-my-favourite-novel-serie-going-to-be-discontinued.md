@@ -109,7 +109,7 @@ written many months after the completion of the first two novels.
 
 
 
-{% highlight r %}
+```r
 da_zhu_zai_time_stamp = extractNovelTimeStamps("2762483")
 da_zhu_zai_time_diff = calculate_hour_diff(da_zhu_zai_time_stamp)
 da_zhu_zai_time_diff = da_zhu_zai_time_diff[da_zhu_zai_time_diff < 168]
@@ -124,7 +124,7 @@ wu_dong_time_diff = calculate_hour_diff(wu_dong_time_stamp)
 wu_dong_time_diff = wu_dong_time_diff[wu_dong_time_diff < 168]
 
 full_time_diff = c(do_puo_time_diff, wu_dong_time_diff, da_zhu_zai_time_diff)
-{% endhighlight %}
+```
 
 Let's take a look at the time series plot, it appears that the average
 interval for novel one and two were fairly consistent to be around 12
@@ -133,7 +133,7 @@ trend approaching 40 hours (A really bad sign!).
 
 
 
-{% highlight r %}
+```r
 novel_time =
     data.frame(duration = full_time_diff,
                post = c(c(1:length(do_puo_time_diff)),
@@ -148,28 +148,24 @@ ggplot(data = novel_time, aes(x = post, y = duration)) +
     geom_line() +
     geom_smooth(col = "red", level = 0.99) + 
     facet_wrap(~novel)
-{% endhighlight %}
+```
 
-
-
-{% highlight text %}
+```
 ## Don't know how to automatically pick scale for object of type difftime. Defaulting to continuous.
-{% endhighlight %}
+```
 
-![plot of chunk unnamed-chunk-3](/figure/2016-07-11-is-my-favourite-novel-serie-going-to-be-discontinued/unnamed-chunk-3-1.png)
+![plot of chunk unnamed-chunk-3](https://mkao006.github.io2016-07-11-is-my-favourite-novel-serie-going-to-be-discontinued/unnamed-chunk-3-1.png)
 
 The summary table also shows the same result that the average or
 median duration to write a new chapter has almost doubled in contrast
 to the two predecessors.
 
 
-{% highlight r %}
+```r
 with(novel_time, tapply(duration, novel, summary))
-{% endhighlight %}
+```
 
-
-
-{% highlight text %}
+```
 ## $`1.do_puo`
 ##   Length    Class     Mode 
 ##     1106 difftime  numeric 
@@ -180,8 +176,8 @@ with(novel_time, tapply(duration, novel, summary))
 ## 
 ## $`3.da_zhu_zai`
 ##   Length    Class     Mode 
-##     1278 difftime  numeric
-{% endhighlight %}
+##     1281 difftime  numeric
+```
 
 This simple analysis shows that there are some possibliies that my
 favourite novel will be discontinued. However, the third novel is also
