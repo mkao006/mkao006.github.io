@@ -1,31 +1,28 @@
 ---
 layout: post
-title:  "Is My Favourite Novel Serie going to be discontinued?"
-categories: [jekyll, rstats]
-tags: [knitr, servr, httpuv, websocket]
+title:  "Is My Favourite Novel Serie to be discontinued?"
+tags: [R, xml, web scrapping]
 ---
 
-Due to the change in the publishing industry in China, modern writters
-generally have to establish themselve by publishing their novel online
-and gain sufficient reputation before a publishing company approach
-and offers a contract.
+Due to the change in the publishing industry in China, modern writters generally
+have to establish themselve by publishing their novel online and gain sufficient
+reputation before a publishing company approach and offers a contract.
 
-Simliar to celebrities, the writters are encourage to publish their
-work on a daily basis to engage with their readers. Often 2 to 3
-chapters are posted a day, and sometimes even more if a fan donates a
-generous amount.
+Simliar to celebrities, the writters are encourage to publish their work on a
+daily basis to engage with their readers. Often 2 to 3 chapters are posted a
+day, and sometimes even more if a fan donates a generous amount.
 
-I have been following this particular novel for several years,
-however, recently I found the update to be much slower than
-before. There has been discussions on the possibility that the series
-may be discontinued due to the high level of stress.
+I have been following this particular novel for several years, however, recently
+I found the update to be much slower than before. There has been discussions on
+the possibility that the series may be discontinued due to the high level of
+stress.
 
-So I decided to investigate the case, and hope not to find evidence
-that my favourite series is going to be discontinued. 
+So I decided to investigate the case, and hope not to find evidence that my
+favourite series is going to be discontinued.
 
-To do this, I scrapped the web page and extracted the time stamp of
-each post. Then investigate the duration between sequetial posts to
-see if there is any changes in the pattern.
+To do this, I scrapped the web page and extracted the time stamp of each post.
+Then investigate the duration between sequetial posts to see if there is any
+changes in the pattern.
 
 
 Let's load the required libraries and define some helper functions.
@@ -102,17 +99,17 @@ calculate_hour_diff = function(time_stamps){
 }
 ```
 
-After defining all the necessary helper function, we can start
-scrapping the data for the analysis. There are three novels in this
-series, the first two `do puo` and `wu dong` has been completed, and
-the third one `da zhu zai` is in progress. 
+After defining all the necessary helper function, we can start scrapping the
+data for the analysis. There are three novels in this series, the first two `do
+puo` and `wu dong` has been completed, and the third one `da zhu zai` is in
+progress.
 
-I have removed time difference that is less than 1 and greater than
-168 hours which corresponds to a week. The reason to delete time
-stamps less than an hour is due to the infrequent update on the forum
-of the first novel where the author had yet to establish a firm
-reputation. While the cap at 168 is for special chapters that were
-written many months after the completion of the first two novels.
+I have removed time difference that is less than 1 and greater than 168 hours
+which corresponds to a week. The reason to delete time stamps less than an hour
+is due to the infrequent update on the forum of the first novel where the author
+had yet to establish a firm reputation. While the cap at 168 is for special
+chapters that were written many months after the completion of the first two
+novels.
 
 
 
@@ -133,10 +130,10 @@ wu_dong_time_diff = wu_dong_time_diff[wu_dong_time_diff < 168]
 full_time_diff = c(do_puo_time_diff, wu_dong_time_diff, da_zhu_zai_time_diff)
 ```
 
-Let's take a look at the time series plot, it appears that the average
-interval for novel one and two were fairly consistent to be around 12
-hours or 2 post a day, while the third novel has a steady increasing
-trend approaching 40 hours (A really bad sign!).
+Let's take a look at the time series plot, it appears that the average interval
+for novel one and two were fairly consistent to be around 12 hours or 2 post a
+day, while the third novel has a steady increasing trend approaching 40 hours (A
+really bad sign!).
 
 
 
@@ -163,31 +160,7 @@ ggplot(data = novel_time, aes(x = post, y = duration)) +
 
 ![plot of chunk unnamed-chunk-3](https://dl.dropboxusercontent.com/u/18161931/staTEAstics/2016-07-11-is-my-favourite-novel-serie-going-to-be-discontinued/unnamed-chunk-3-1.png)
 
-The summary table also shows the same result that the average or
-median duration to write a new chapter has almost doubled in contrast
-to the two predecessors.
-
-
-```r
-with(novel_time, tapply(duration, novel, summary))
-```
-
-```
-## $`1.do_puo`
-##   Length    Class     Mode 
-##     1106 difftime  numeric 
-## 
-## $`2.wu_dong`
-##   Length    Class     Mode 
-##     1314 difftime  numeric 
-## 
-## $`3.da_zhu_zai`
-##   Length    Class     Mode 
-##     1281 difftime  numeric
-```
-
-This simple analysis shows that there are some possibliies that my
-favourite novel will be discontinued. However, the third novel is also
-expected to be much longer than the first two. So I hope the author
-may be simply gathering and structuring his ideas, then regain his
-momentum and finish the novel.
+This simple analysis shows that there are some possibliies that my favourite
+novel will be discontinued. However, the third novel is also expected to be much
+longer than the first two. So I hope the author may be simply gathering and
+structuring his ideas, then regain his momentum and finish the novel.
