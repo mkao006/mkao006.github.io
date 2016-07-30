@@ -1,13 +1,13 @@
 local({
-    ## # fall back on '/' if baseurl is not specified
-    ## baseurl = servr:::jekyll_config('.', 'baseurl', '/')
-    ## knitr::opts_knit$set(base.url = baseurl)
-    ## # fall back on 'kramdown' if markdown engine is not specified
-    ## markdown = servr:::jekyll_config('.', 'markdown', 'kramdown')
-                                        # see if we need to use the Jekyll render in knitr
-    ## if (markdown == 'kramdown') {
-    ##   knitr::render_jekyll()
-    ## } else knitr::render_markdown()
+    # fall back on '/' if baseurl is not specified
+    baseurl = servr:::jekyll_config('.', 'baseurl', '/')
+    knitr::opts_knit$set(base.url = baseurl)
+    # fall back on 'kramdown' if markdown engine is not specified
+    markdown = servr:::jekyll_config('.', 'markdown', 'kramdown')
+                                        see if we need to use the Jekyll render in knitr
+    if (markdown == 'kramdown') {
+      knitr::render_jekyll()
+    } else knitr::render_markdown()
 
     ## input/output filenames are passed as two additional arguments to Rscript
     input = commandArgs(TRUE)
