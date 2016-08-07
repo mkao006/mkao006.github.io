@@ -19,6 +19,7 @@
 
 # Publishing steps
 
-1. Copy the `.Rmd` file into the `_source` directory.
-2. Execute the `build.sh` script with the `.Rmd` file as the arguement.
-3. Commit and push the file.
+1. Start `R` and execute `servr::jekyll()`.
+2. Begin writing or editting a post in `_source`.
+3. Preview at [local](http://127.0.0.1:4321)
+4. Commit and push to update the blog
