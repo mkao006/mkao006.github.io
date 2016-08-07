@@ -11,10 +11,12 @@ local({
     } else knitr::render_markdown()
 
     ## input/output filenames are passed as two additional arguments to Rscript
-    input = commandArgs(TRUE)
-    output = gsub("Rmd", "md", gsub("_source", "_posts", input))
+    a = commandArgs(TRUE)
+    d = gsub('^_|[.][a-zA-Z]+$', '', a[1])
+    ## input = commandArgs(TRUE)
+    ## output = gsub("Rmd", "md", gsub("_source", "_posts", input))
+    ## d = gsub('^_|[.][a-zA-Z]+$', '', input)
 
-    d = gsub('^_|[.][a-zA-Z]+$', '', input)
     knitr::opts_chunk$set(
         fig.path   = sprintf('figure/%s/', d),
         cache.path = sprintf('cache/%s/', d)
@@ -29,5 +31,6 @@ local({
         base.url = 'https://dl.dropboxusercontent.com/u/18161931/staTEAstics/'
     )
     knitr::opts_knit$set(width = 70)
-    knitr::knit(input, output, quiet = TRUE, encoding = 'UTF-8', envir = .GlobalEnv)
+    ## knitr::knit(input, output, quiet = TRUE, encoding = 'UTF-8', envir = .GlobalEnv)
+    knitr::knit(a[1], a[2], quiet = TRUE, encoding = 'UTF-8', envir = .GlobalEnv)
 })
