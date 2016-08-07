@@ -30,15 +30,19 @@ Let's load the required libraries and define some helper functions.
 
 
 
-```r
+{% highlight r %}
 library(XML)
-```
+{% endhighlight %}
 
-```
+
+
+{% highlight text %}
 ## Loading required package: methods
-```
+{% endhighlight %}
 
-```r
+
+
+{% highlight r %}
 library(stringr)
 library(magrittr)
 library(ggplot2)
@@ -97,7 +101,7 @@ extractNovelTimeStamps = function(thread){
 calculate_hour_diff = function(time_stamps){
     diff(time_stamps)/60/60
 }
-```
+{% endhighlight %}
 
 After defining all the necessary helper function, we can start scrapping the
 data for the analysis. There are three novels in this series, the first two `do
@@ -113,7 +117,7 @@ novels.
 
 
 
-```r
+{% highlight r %}
 da_zhu_zai_time_stamp = extractNovelTimeStamps("2762483")
 da_zhu_zai_time_diff = calculate_hour_diff(da_zhu_zai_time_stamp)
 da_zhu_zai_time_diff = da_zhu_zai_time_diff[da_zhu_zai_time_diff < 168]
@@ -128,7 +132,7 @@ wu_dong_time_diff = calculate_hour_diff(wu_dong_time_stamp)
 wu_dong_time_diff = wu_dong_time_diff[wu_dong_time_diff < 168]
 
 full_time_diff = c(do_puo_time_diff, wu_dong_time_diff, da_zhu_zai_time_diff)
-```
+{% endhighlight %}
 
 Let's take a look at the time series plot, it appears that the average interval
 for novel one and two were fairly consistent to be around 12 hours or 2 post a
@@ -137,7 +141,7 @@ really bad sign!).
 
 
 
-```r
+{% highlight r %}
 novel_time =
     data.frame(duration = full_time_diff,
                post = c(c(1:length(do_puo_time_diff)),
@@ -152,11 +156,13 @@ ggplot(data = novel_time, aes(x = post, y = duration)) +
     geom_line() +
     geom_smooth(col = "red", level = 0.99) + 
     facet_wrap(~novel)
-```
+{% endhighlight %}
 
-```
+
+
+{% highlight text %}
 ## Don't know how to automatically pick scale for object of type difftime. Defaulting to continuous.
-```
+{% endhighlight %}
 
 ![plot of chunk unnamed-chunk-3](https://dl.dropboxusercontent.com/u/18161931/staTEAstics/2016-07-11-is-my-favourite-novel-serie-going-to-be-discontinued/unnamed-chunk-3-1.png)
 
