@@ -32,11 +32,20 @@ transformation and manipulations are performed to reduce the number of
 parameters required to be estimated.
 
 
+This can be viewed as data preparation, but in the case of Convolution Neural
+Network (CNN) it is an integral part of the classification. Nevertheless, we
+will view CNN as a special case of feed forward neural networks (FNN) based on
+the explaination in the representation section.
+
+**TODO (Michael): Research on more transformation examples**
+
 ### Dimension Reduction
 
 ### Specialisation
 
 ## Representation
+
+**TODO (Michael): Elaborate more on algebraic structure and graph theory**
 
 One key component of neural networks is the representation or structure of the
 neural network. The structure under this context does not refer to the number of
