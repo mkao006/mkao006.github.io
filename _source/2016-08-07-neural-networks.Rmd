@@ -1,0 +1,117 @@
+---
+layout: post
+title:  "Neural Networks"
+---
+
+This is an on-going post where I present my thoughts and understanding of neural
+networks.
+
+The post is not about neural networks theory or implementation, rather, it is an
+overview of the various components which constitute the core dimensions of the
+models in deep learning.
+
+
+
+# Components
+
+**NOTE (Michael): Provide a figure of the components here.**
+
+## Input Transformation
+
+According to the [Universal Approximation
+Theorem](https://en.wikipedia.org/wiki/Universal_approximation_theorem), a
+single layer feed forward neural network with finite neurons and sigmoid
+activation function is capable of capturing any continuous relationship.
+However, in practice under contrained resources, data are transformed in order
+to take advantage of certain structure and understanding of the data.
+
+Due to the multiplicative nature of neural networks, the number of parameters in
+a neural network can grow exponentially and renders the model untrainable
+rapidly by most standard. In order to train the model efficiently,
+transformation and manipulations are performed to reduce the number of
+parameters required to be estimated.
+
+
+### Dimension Reduction
+
+### Specialisation
+
+## Representation
+
+One key component of neural networks is the representation or structure of the
+neural network. The structure under this context does not refer to the number of
+layers nor the size of the network. Rather, here we refer to the property of the
+representation.
+
+Neural networks can be represented as graphs. A graph consists of a set of
+vertices/nodes, and a set of unordered pairs of edges. When representing the
+neural network as a graph model, input, hidden layer and outputs are vertices
+while the transformation and activation are the edge representing the
+relationship between the nodes.
+
+In most scenarios, neural networks are directed graphs. That is, there is a
+direction between the nodes. For example, input nodes point to hidden nodes
+which then ultimately direct to the output nodes.
+
+
+Although there are models which are undirected, we will be solely focused on
+directed graphs as almost all popular neural networks are directed.
+
+One of the most important property that distinguishes the type of neural network
+is whether the graph contain cycles or not. A cycle is a property of a graph in
+which there exist at least a node where we can being our journey and traverse
+through the graph and return to the same node. 
+
+In the followin subsections, we will provide further information on this
+distinction.
+
+**TODO (Michael): Give more example on different type of neural networks such as
+Botzmann Machine and Hierachical Temporal Memory (HTM)**
+
+
+### Directed Acyclic Graph (No cycle)
+
+A directed graph which does not contain contain at least one cycle, it is called
+a directed acyclic graph (DAGs).
+
+Simple models such as perceptron, feed forward neural networks and convolution
+neural networks all belong to this class. Technically speaking, convolution
+neural network are feed forward neural networks which exploits the 2D data
+structure in images by restricting the edege through convolution and pooling.
+
+In a DAG, all nodes can point to other nodes but they can not point to themself.
+Take feed forward neural network for example, inputs can only point to hiddne
+nodes but there is not path to return to the input itself.
+
+Due to this property, neural networks in this class are hierachical in nature
+and has a topological order.
+
+**TODO (Michael): Elaborate on topological order and Hamiltonian path.**
+
+### Graph with Cycles
+
+In contrast to DAGS, recurrent neural networks contain cycles in their graph.
+
+Recurrent neural networks such as Long Short Term Memory (LSTM) contains what is
+called the LSTM block which is a cycle in the graph. The LSTM block enables the
+output of a node at time $t - 1$ to be fed into the same node at time $t$.
+
+This gives the neural network the `memory` property making them more suitable
+for data which has sequential nature. Although it is possible to use a feed
+forward neural network to model a time series, but due to the lack of the cycle,
+the sequential nature of the data has to be encoded in the input. This creates a
+much larger neural network with an exponentially greater number of weights and
+at the same time renders the training painfully long and inefficient.
+
+
+## Edge Relationship
+
+Between every nodes, there is an edge which specifies the relationship between
+the nodes.
+
+In a feed forward neural network, the relationship between nodes are functions
+such as the sigmoid function.
+
+
+## Training Algorithms
+
