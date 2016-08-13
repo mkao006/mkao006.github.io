@@ -1,4 +1,4 @@
-# This is the home page of [StaTEAstics](www.stateastics.com)
+# This is the Github repo of [StaTEAstics](www.stateastics.com)
 
 ## This is a modified version of Yihui's implementation.
 
