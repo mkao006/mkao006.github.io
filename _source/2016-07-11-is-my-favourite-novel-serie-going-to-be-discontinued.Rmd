@@ -151,3 +151,6 @@ This simple analysis shows that there are some possibliies that my favourite
 novel will be discontinued. However, the third novel is also expected to be much
 longer than the first two. So I hope the author may be simply gathering and
 structuring his ideas, then regain his momentum and finish the novel.
+
+[Python codes](https://github.com/mkao006/sunday_funday/blob/master/StatTEAstic/time_to_write_a_chapter/time_to_write_a_chapter.py) are also available.
+
