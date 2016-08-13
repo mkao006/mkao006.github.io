@@ -1,4 +1,6 @@
-# This is a modified version of Yihui's implementation.
+# This is the home page of [StaTEAstics](www.stateastics.com)
+
+## This is a modified version of Yihui's implementation.
 
 > This is a minimal example of a Jekyll-based website using **knitr** and R
 > Markdown. The interesting bit of this repo is that you can actually serve the
